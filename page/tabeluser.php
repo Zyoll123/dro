@@ -19,10 +19,10 @@ if (!isset($_SESSION['id'])) {
 <body>
     <div class="container">
         <nav class="navigation">
-            <a href="#">SISWA</a>
-            <a href="tabeluser.php">USER</a>
+            <a href="index.php">SISWA</a>
+            <a href="#">USER</a>
         </nav>
-        <h2>CRUD DATA SISWA</h2>
+        <h2>CRUD DATA USER</h2>
         <p>Selamat datang,
             <?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Tamu'; ?>!
         </p>
@@ -31,28 +31,26 @@ if (!isset($_SESSION['id'])) {
         <table border="1">
             <tr>
                 <th>No</th>
-                <th>NISN</th>
-                <th>Nama</th>
-                <th>Alamat</th>
+                <th>Username</th>
+                <th>Password</th>
                 <th>Aksi</th>
             </tr>
             <?php
             $no = 1;
             // Query untuk mengambil data siswa
-            $result = $conn->query("SELECT * FROM siswa");
+            $result = $conn->query("SELECT * FROM user");
 
             // Menampilkan data dari query
             while ($d = $result->fetch_assoc()) {
                 ?>
                 <tr>
                     <td><?php echo $no++; ?></td>
-                    <td><?php echo $d['nisn']; ?></td>
-                    <td><?php echo $d['nama']; ?></td>
-                    <td><?php echo $d['alamat']; ?></td>
+                    <td><?php echo $d['username']; ?></td>
+                    <td><?php echo $d['password']; ?></td>
                     <td>
                         <!-- Tautan untuk edit dan hapus, menggunakan ID sebagai parameter -->
-                        <a href='edit.php?nisn=<?php echo $d['nisn']; ?>'>Edit</a>
-                        <a href='../aksi/hapus.php?nisn=<?php echo $d['nisn']; ?>'>Hapus</a>
+                        <a href='edituser.php?id_user=<?php echo $d['id_user']; ?>'>Edit</a>
+                        <a href='../aksi/hapususer.php?id_user=<?php echo $d['id_user']; ?>' onclick="return confirm('Apakah anda yakin menghapus user ini?')">Hapus</a>
                     </td>
                 </tr>
                 <?php
@@ -60,7 +58,7 @@ if (!isset($_SESSION['id'])) {
             ?>
         </table>
         <br>
-        <a href="tambah.html">tambah Siswa</a>
+        <a href="tambahuser.html">tambah user</a>
         <br>
         <a href="../login/login.html">Log Out</a>
     </div>

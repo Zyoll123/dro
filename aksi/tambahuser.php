@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($stmt->execute()) {
         // Jika berhasil, arahkan ke halaman admin
-        header("Location: ../page/index.php");
+        header("Location: ../page/tabeluser.php");
         exit;
     } else {
         echo "Gagal menambahkan user.";

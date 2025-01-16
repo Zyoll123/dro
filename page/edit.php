@@ -3,7 +3,7 @@ session_start();
 include '../aksi/koneksi.php';
 
 if (isset($_GET['nisn'])) {
-    $nisn = intval($_GET['nisn']); // Konversi ke integer
+    $nisn = intval($_GET['nisn']);
 
     if ($nisn <= 0) {
         echo "NISN tidak valid.";
@@ -33,7 +33,7 @@ if (isset($_GET['nisn'])) {
 
 // Proses update data
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nisn = intval($_POST['nisn']); // Konversi ke integer
+    $nisn = intval($_POST['nisn']); 
     $nama = $_POST['nama'];
     $alamat = $_POST['alamat'];
 
