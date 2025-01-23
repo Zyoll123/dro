@@ -2,18 +2,15 @@
 session_start();
 include 'koneksi.php';
 
-// Proses tambah user
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Query untuk memasukkan user baru
     $insert_query = "INSERT INTO user (username, password) VALUES (?, ?)";
     $stmt = $conn->prepare($insert_query);
     $stmt->bind_param("ss", $username, $password);
 
     if ($stmt->execute()) {
-        // Jika berhasil, arahkan ke halaman admin
         header("Location: ../page/tabeluser.php");
         exit;
     } else {

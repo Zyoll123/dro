@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../aksi/koneksi.php'; // Pastikan koneksi.php berisi konfigurasi koneksi yang benar
+include '../aksi/koneksi.php';
 ?>
 
 <!DOCTYPE html>
@@ -10,10 +10,9 @@ include '../aksi/koneksi.php'; // Pastikan koneksi.php berisi konfigurasi koneks
     <title>Admin Dashboard</title>
 </head>
 <body>
-    <h2>CRUD DATA SISWA</h2>
+    <h2>DATA SISWA</h2>
     <p>Selamat datang, <?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Tamu'; ?>!</p>
 
-    <!-- Tabel data siswa -->
     <table border="1">
         <tr>
             <th>No</th>
@@ -23,13 +22,10 @@ include '../aksi/koneksi.php'; // Pastikan koneksi.php berisi konfigurasi koneks
         </tr>
         <?php
         $no = 1;
-        // Pastikan koneksi ke database berhasil
         if ($conn) {
-            // Query untuk mengambil data siswa
             $result = $conn->query("SELECT * FROM siswa");
 
             if ($result) {
-                // Menampilkan data dari query
                 while ($d = $result->fetch_assoc()) {
         ?>
         <tr>

@@ -22,7 +22,7 @@ if (!isset($_SESSION['id'])) {
     <div class="container">
         <?php include 'sidebar.php'; ?>
         <div class="content">
-            <h2>CRUD DATA USER</h2>
+            <h2>CRUD DATA ADMIN</h2>
             <p>Selamat datang,
                 <?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Tamu'; ?>!
             </p>
@@ -36,7 +36,7 @@ if (!isset($_SESSION['id'])) {
                 </tr>
                 <?php
                 $no = 1;
-                $result = $conn->query("SELECT * FROM user");
+                $result = $conn->query("SELECT * FROM admin");
 
                 while ($d = $result->fetch_assoc()) {
                     ?>
@@ -45,9 +45,9 @@ if (!isset($_SESSION['id'])) {
                         <td><?php echo $d['username']; ?></td>
                         <td><?php echo $d['password']; ?></td>
                         <td>
-                            <a href='edituser.php?id_user=<?php echo $d['id_user']; ?>'>Edit</a>
-                            <a href='../aksi/hapususer.php?id=<?php echo $d['id_user']; ?>'
-                                onclick="return confirm('Apakah anda yakin menghapus user ini?')">Hapus</a>
+                            <a href='editadmin.php?id_admin=<?php echo $d['id_admin']; ?>'>Edit</a>
+                            <a href='../aksi/hapususer.php?id=<?php echo $d['id_admin']; ?>'
+                                onclick="return confirm('Apakah anda yakin menghapus admin ini?')">Hapus</a>
                         </td>
                     </tr>
                     <?php
