@@ -1,13 +1,3 @@
-<?php
-session_start();
-include '../aksi/koneksi.php';
-
-if (!isset($_SESSION['id'])) {
-    header("Location: ../login/login.html");
-    exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,10 +14,10 @@ if (!isset($_SESSION['id'])) {
         <?php include 'sidebar.php'; ?>
         <div class="content">
             <div class="content-item">
-                <a href="tabeluser.php">user</a>
+                <a href="tabeluser.php"><i class="fa-solid fa-users"></i> User</a>
             </div>
             <div class="content-item">
-                <a href="tabeladmin.php">admin</a>
+                <a href="tabeladmin.php"><i class="fa-solid fa-user-shield"></i> Admin</a>
             </div>
         </div>
     </div>

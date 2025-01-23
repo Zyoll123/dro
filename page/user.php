@@ -1,8 +1,3 @@
-<?php
-session_start();
-include '../aksi/koneksi.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +16,7 @@ include '../aksi/koneksi.php';
             <th>Alamat</th>
         </tr>
         <?php
+        include '../aksi/koneksi.php';
         $no = 1;
         if ($conn) {
             $result = $conn->query("SELECT * FROM siswa");

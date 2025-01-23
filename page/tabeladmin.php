@@ -1,13 +1,3 @@
-<?php
-session_start();
-include '../aksi/koneksi.php';
-
-if (!isset($_SESSION['id'])) {
-    header("Location: ../login/login.html");
-    exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 

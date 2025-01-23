@@ -1,4 +1,17 @@
+<?php
+session_start();
+include '../aksi/koneksi.php';
+
+if (!isset($_SESSION['id'])) {
+    header("Location: ../login/login.html");
+    exit;
+}
+?>
+
 <div class="sidebar">
+    <div class="sidebar-item">
+        <h1><?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Tamu'; ?></h1>
+    </div>
     <div class="sidebar-item">
         <a href="index.php"><i class="fa-solid fa-house"></i> Home Page</a>
     </div>
